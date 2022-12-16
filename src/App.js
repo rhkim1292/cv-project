@@ -5,20 +5,11 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			name: 'RANDY KIM',
-			title: 'Software Engineer',
-			phone: '(213) 713-2208',
-			email: 'rhkim1292@gmail.com',
-			links: [
-				{
-					type: 'github',
-					link: 'github.com/rhkim1292',
-				},
-				{
-					type: 'linkedin',
-					link: 'linkedin.com/in/randy-kim-7025a1160',
-				},
-			],
+			name: 'YOUR NAME',
+			title: 'Your Title',
+			phone: '(123) 456-7890',
+			email: 'your@email.com',
+			links: [],
 		};
 	}
 

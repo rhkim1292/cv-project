@@ -1,6 +1,7 @@
 header {
     background-color: #2F3947;
     color: #C6D9F1;
+    position: relative;
 }
 
 header div.style-box {
@@ -43,4 +44,11 @@ header div.info-section ul {
 
 header div.info-section ul li {
     margin: 10px 0px;
+}
+
+header button.header-edit-btn {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }
