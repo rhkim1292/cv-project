@@ -11,30 +11,63 @@ header div.style-box {
     margin: auto;
 }
 
-header div.name-title-section {
+header form {
+    position: relative;
+}
+
+header form div.name-title-section {
     padding: 25px 0px;
 }
 
-header div.name-title-section h1.name,
-header div.name-title-section h2.title {
+header form div.name-title-section h1.name,
+header form div.name-title-section h2.title {
     margin: 0;
     text-align: center;
 }
 
-header div.name-title-section h1.name {
+header form input#nameInput {
+    display: block;
+    width: 200px;
+    height: 37px;
+    text-align: center;
+    margin: auto;
     margin-bottom: 10px;
 }
 
-header div.name-title-section h2.title {
+header form input#titleInput {
+    display: block;
+    width: 200px;
+    height: 28px;
+    text-align: center;
+    margin: auto;
+}
+
+header form input#phoneInput {
+    width: 100px;
+    height: 18px;
+    text-align: center;
+}
+
+header form input#emailInput {
+    width: 150px;
+    height: 18px;
+    text-align: center;
+}
+
+header form div.name-title-section h1.name {
+    margin-bottom: 10px;
+}
+
+header form div.name-title-section h2.title {
     margin-top: 10px;
 }
 
-header div.info-section {
+header form div.info-section {
     background-color: #F2F2F2;
     color: black;
 }
 
-header div.info-section ul {
+header form div.info-section ul {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -42,8 +75,15 @@ header div.info-section ul {
     padding: 0;
 }
 
-header div.info-section ul li {
+header form div.info-section ul li {
     margin: 10px 0px;
+}
+
+header form button.header-submit-btn {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: -5px;
 }
 
 header button.header-edit-btn {
