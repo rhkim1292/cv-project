@@ -70,6 +70,7 @@ header form div.info-section {
 header form div.info-section ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
     margin: 0;
     padding: 0;
@@ -77,17 +78,31 @@ header form div.info-section ul {
 
 header form div.info-section ul li {
     margin: 10px 0px;
+    position: relative;
+}
+
+header form div.info-section ul li button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+header form div.info-section ul button#addLinkBtn {
+    height: 21.48px;
+}
+
+header form div.info-section ul div.add-link-container {
+    display: flex;
+    gap: 5px;
 }
 
 header form button.header-submit-btn {
-    display: none;
     position: absolute;
     right: 5px;
     top: -5px;
 }
 
 header button.header-edit-btn {
-    display: none;
     position: absolute;
     right: 5px;
     top: 5px;
