@@ -71,20 +71,32 @@ header form div.info-section ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     margin: 0;
     padding: 0;
+    list-style-type: none;
+}
+
+.svg-inline--fa {
+    color: #4BACC6;
+    height: 17px;
+}
+
+.fa-github,
+.fa-linkedin {
+    height: 19px;
 }
 
 header form div.info-section ul li {
     margin: 10px 0px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 header form div.info-section ul li button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
+    color: red;
+    margin-left: 3px;
 }
 
 header form div.info-section ul button#addLinkBtn {
@@ -94,6 +106,10 @@ header form div.info-section ul button#addLinkBtn {
 header form div.info-section ul div.add-link-container {
     display: flex;
     gap: 5px;
+}
+
+header form div.info-section ul div.add-link-container button.del-link-btn {
+    color: red;
 }
 
 header form button.header-submit-btn {

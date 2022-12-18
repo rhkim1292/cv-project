@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import '../styles/Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhone, faLink } from '@fortawesome/free-solid-svg-icons';
 
 class Header extends Component {
 	constructor() {
@@ -16,6 +19,7 @@ class Header extends Component {
 		};
 		this.startEditMode = this.startEditMode.bind(this);
 		this.startAddLinkMode = this.startAddLinkMode.bind(this);
+		this.stopAddLinkMode = this.stopAddLinkMode.bind(this);
 		this.makeEditBtnVisible = this.makeEditBtnVisible.bind(this);
 		this.makeEditBtnInvisible = this.makeEditBtnInvisible.bind(this);
 		this.handleHeaderFormSubmit = this.handleHeaderFormSubmit.bind(this);
@@ -38,9 +42,15 @@ class Header extends Component {
 		this.setState({ addLinkMode: true });
 	}
 
+	stopAddLinkMode(e) {
+		this.setState({ addLinkMode: false });
+	}
+
 	handleHeaderFormSubmit(e) {
 		e.preventDefault();
 		const formData = new FormData(e.target);
+		const linkAddBtn = document.getElementById('addBtn');
+		if (linkAddBtn) linkAddBtn.click();
 		this.setState({
 			name: formData.get('name'),
 			title: formData.get('title'),
@@ -66,6 +76,17 @@ class Header extends Component {
 			}),
 			addLinkMode: false,
 		});
+	}
+
+	displayLinkIcon(currLink) {
+		switch (currLink.linkType) {
+			case 'github':
+				return <FontAwesomeIcon icon={faGithub} />;
+			case 'linkedin':
+				return <FontAwesomeIcon icon={faLinkedin} />;
+			default:
+				return <FontAwesomeIcon icon={faLink} />;
+		}
 	}
 
 	render() {
@@ -103,6 +124,7 @@ class Header extends Component {
 					<div className="info-section">
 						<ul>
 							<li>
+								<FontAwesomeIcon icon={faPhone} />
 								{this.state.editMode ? (
 									<input
 										type="tel"
@@ -118,6 +140,7 @@ class Header extends Component {
 								)}
 							</li>
 							<li>
+								<FontAwesomeIcon icon={faEnvelope} />
 								{this.state.editMode ? (
 									<input
 										type="email"
@@ -132,7 +155,28 @@ class Header extends Component {
 								)}
 							</li>
 							{this.state.links.map((currLink, idx) => (
-								<li key={idx}>{currLink.link}</li>
+								<li key={idx}>
+									{this.displayLinkIcon(currLink)}
+									{currLink.link}
+									{this.state.editMode ? (
+										<button
+											type="button"
+											onClick={(e) => {
+												this.setState({
+													links: this.state.links.filter(
+														(value, index) => {
+															if (index !== idx)
+																return value;
+															return null;
+														}
+													),
+												});
+											}}
+										>
+											x
+										</button>
+									) : null}
+								</li>
 							))}
 							{this.state.editMode &&
 								(this.state.addLinkMode ? (
@@ -146,12 +190,19 @@ class Header extends Component {
 											</option>
 											<option value="other">Other</option>
 										</select>
-										<input name="link" id="link" />
+										<input type="url" name="link" id="link" />
 										<button
+											id="addBtn"
 											type="button"
 											onClick={this.handleAddLink}
 										>
 											Add
+										</button>
+										<button
+											className="del-link-btn"
+											onClick={this.stopAddLinkMode}
+										>
+											x
 										</button>
 									</div>
 								) : (
