@@ -74,7 +74,7 @@ header form div.info-section ul {
     gap: 20px;
     margin: 0;
     padding: 0;
-    list-style-type: none;
+    list-style: none;
 }
 
 .svg-inline--fa {
