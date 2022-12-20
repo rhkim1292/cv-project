@@ -1,34 +1,178 @@
 div.education-section {
 	position: relative;
+	padding: 10px 30px;
 }
 
 div.education-section h2 {
 	margin: 0px 0px 10px;
+	position: relative;
+	color: #31849b;
 }
 
 div.education-section h3 {
+	margin: 0px 0px 40px;
+}
+
+div.education-section div.school-container {
+	position: relative;
+}
+
+div.education-section div.school-container button.del-school-btn {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	color: red;
+}
+
+div.education-section div.school-container h3 {
 	font-weight: normal;
 }
 
-div.education-section h3 div.degree-field-grad-date {
+div.education-section div.school-container h3 div.degree-field-grad-date {
 	color: #31849b;
 }
-div.education-section h3 div.degree-field-grad-date p {
+div.education-section div.school-container h3 div.degree-field-grad-date p {
 	margin: 0;
 }
 
-div.education-section h3 div.degree-field-grad-date p.degree-field,
-div.education-section h3 div.degree-field-grad-date p.grad-date {
+div.education-section
+	div.school-container
+	h3
+	div.degree-field-grad-date
+	p.degree-field,
+div.education-section
+	div.school-container
+	h3
+	div.degree-field-grad-date
+	p.grad-date {
 	float: left;
 	width: 50%;
 }
 
-div.education-section h3 div.degree-field-grad-date p.grad-date {
+div.education-section
+	div.school-container
+	h3
+	div.degree-field-grad-date
+	p.grad-date {
 	text-align: right;
+}
+
+div.education-section button.add-school-btn {
+	display: block;
+	margin: auto;
+}
+
+div.education-section button.education-submit-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
 }
 
 div.education-section button.education-edit-btn {
 	position: absolute;
-	right: -26px;
-	top: -5px;
+	right: 5px;
+	top: 5px;
+}
+
+.speaker-form {
+	background-color: #f2f2f2;
+	border: 1px solid #d6d9dc;
+	border-radius: 3px;
+
+	width: 80%;
+	padding: 35px 25px 0px 50px;
+	margin: 50px auto 0px;
+	position: relative;
+}
+
+.speaker-form button.close-form-btn {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: red;
+}
+
+.form-row {
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.form-row input[type='text'] {
+	background-color: #ffffff;
+	border: 1px solid #d6d9dc;
+	border-radius: 3px;
+	width: 100%;
+	padding: 7px;
+	font-size: 14px;
+}
+
+.form-row input[type='text']:invalid {
+	border: 1px solid #d55c5f;
+	color: #d55c5f;
+	box-shadow: none; /* Remove default red glow in Firefox */
+}
+
+.form-row label {
+	margin-bottom: 15px;
+}
+
+.form-row select {
+	width: 100%;
+	padding: 5px;
+	font-size: 14px; /* This won't work in Chrome or Safari */
+}
+
+.form-row button.form-submit-btn {
+	font-size: 16px;
+	font-weight: bold;
+
+	color: #ffffff;
+	background-color: hsl(215, 20%, 27%);
+
+	border: none;
+	border-radius: 3px;
+
+	padding: 10px 40px;
+	cursor: pointer;
+}
+
+.form-row button.form-submit-btn:hover {
+	background-color: hsl(214, 20%, 43%);
+}
+
+.form-row button.form-submit-btn:active {
+	background-color: hsl(215, 20%, 27%);
+}
+
+@media only screen and (min-width: 700px) {
+	.speaker-form {
+		/* width: 600px; */
+		width: 500px;
+	}
+
+	.form-row {
+		flex-direction: row;
+		align-items: flex-start; /* To avoid stretching */
+		margin-bottom: 20px;
+	}
+
+	.form-row input[type='text'],
+	.form-row select {
+		width: 250px;
+		height: initial;
+	}
+
+	.form-row label {
+		text-align: right;
+		width: 120px;
+		margin-top: 7px;
+		padding-right: 20px;
+	}
+
+	.form-row button.form-submit-btn {
+		margin-left: 120px;
+	}
 }
