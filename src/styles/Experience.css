@@ -1,80 +1,74 @@
-div.education-section {
+div.exp-section {
 	position: relative;
 	padding: 10px 30px;
 }
 
-div.education-section h2 {
+div.exp-section h2 {
 	margin: 0px 0px 25px;
 	position: relative;
 	color: #31849b;
 }
 
-div.education-section h3 {
+div.exp-section h3 {
 	margin: 0px 0px 40px;
 }
 
-div.education-section div.school-container {
+div.exp-section div.exp-container {
 	position: relative;
 }
 
-div.education-section div.school-container button.del-school-btn {
+div.exp-section div.exp-container button.del-exp-btn {
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	color: red;
 }
 
-div.education-section div.school-container h3 {
+div.exp-section div.exp-container h3 {
 	font-weight: normal;
 }
 
-div.education-section div.school-container h3 div.degree-field-grad-date {
+div.exp-section div.exp-container h3 div.title-start-end-date {
 	color: #31849b;
 }
-div.education-section div.school-container h3 div.degree-field-grad-date p {
+div.exp-section div.exp-container h3 div.title-start-end-date p {
 	margin: 0;
 }
 
-div.education-section
-	div.school-container
-	h3
-	div.degree-field-grad-date
-	p.degree-field,
-div.education-section
-	div.school-container
-	h3
-	div.degree-field-grad-date
-	p.grad-date {
+div.exp-section div.exp-container h3 div.title-start-end-date p.title,
+div.exp-section div.exp-container h3 div.title-start-end-date p.start-end-date {
 	float: left;
 	width: 50%;
 }
 
-div.education-section
-	div.school-container
-	h3
-	div.degree-field-grad-date
-	p.grad-date {
+div.exp-section div.exp-container h3 div.title-start-end-date p.start-end-date {
 	text-align: right;
 }
 
-div.education-section button.add-school-btn {
+div.exp-section button.add-exp-btn {
 	display: block;
 	margin: auto;
 }
 
-div.education-section button.education-submit-btn {
+div.exp-section button.exp-submit-btn {
 	position: absolute;
 	right: 5px;
 	top: 5px;
 }
 
-div.education-section button.education-edit-btn {
+div.exp-section button.exp-edit-btn {
 	position: absolute;
 	right: 5px;
 	top: 5px;
 }
 
-.add-school-form {
+div.exp-section button.exp-edit-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.add-exp-form {
 	background-color: #f2f2f2;
 	border: 1px solid #d6d9dc;
 	border-radius: 3px;
@@ -85,7 +79,7 @@ div.education-section button.education-edit-btn {
 	position: relative;
 }
 
-.add-school-form button.close-form-btn {
+.add-exp-form button.close-form-btn {
 	position: absolute;
 	top: 5px;
 	right: 5px;
@@ -125,6 +119,15 @@ div.education-section button.education-edit-btn {
 	font-size: 14px; /* This won't work in Chrome or Safari */
 }
 
+.form-row.start-year-row {
+	margin-bottom: 0;
+}
+
+.form-row .checkbox-label {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .form-row button.form-submit-btn {
 	font-size: 16px;
 	font-weight: bold;
@@ -148,7 +151,7 @@ div.education-section button.education-edit-btn {
 }
 
 @media only screen and (min-width: 700px) {
-	.add-school-form {
+	.add-exp-form {
 		/* width: 600px; */
 		width: 500px;
 	}
@@ -170,6 +173,11 @@ div.education-section button.education-edit-btn {
 		width: 120px;
 		margin-top: 7px;
 		padding-right: 20px;
+	}
+
+	.form-row .checkbox-label {
+		margin-left: 120px;
+		width: auto;
 	}
 
 	.form-row button.form-submit-btn {

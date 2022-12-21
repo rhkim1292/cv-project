@@ -94,7 +94,7 @@ class Education extends Component {
 				))}
 				{this.state.editMode && this.state.addSchoolMode ? (
 					<form
-						className="speaker-form"
+						className="add-school-form"
 						onSubmit={(e) => {
 							e.preventDefault();
 							const formData = new FormData(e.target);
@@ -113,7 +113,7 @@ class Education extends Component {
 					>
 						<div className="form-row">
 							<label for="name">School Name</label>
-							<input id="name" name="name" type="text" />
+							<input id="name" name="name" type="text" required />
 						</div>
 						<div className="form-row">
 							<label for="location">Location</label>
@@ -122,6 +122,7 @@ class Education extends Component {
 								name="location"
 								type="text"
 								placeholder="Los Angeles, CA"
+								required
 							/>
 						</div>
 						<div class="form-row">
@@ -146,7 +147,12 @@ class Education extends Component {
 						</div>
 						<div className="form-row">
 							<label for="field">Field</label>
-							<input id="field" name="field" type="text" />
+							<input
+								id="field"
+								name="field"
+								type="text"
+								required
+							/>
 						</div>
 						<div class="form-row">
 							<label for="gradMonth">Grad Month</label>
@@ -216,6 +222,7 @@ class Education extends Component {
 						Submit
 					</button>
 				) : null}
+
 				{this.state.hovering && !this.state.editMode ? (
 					<button
 						className="education-edit-btn"
