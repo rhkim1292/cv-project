@@ -1,6 +1,6 @@
+import { faBorderNone } from '@fortawesome/free-solid-svg-icons';
 import { Component } from 'react';
 import '../styles/Experience.css';
-import React from 'react';
 
 class Experience extends Component {
 	constructor() {
@@ -15,6 +15,9 @@ class Experience extends Component {
 					startYear: '2012',
 					endMonth: 'Feb',
 					endYear: '2012',
+					tasks: [
+						'Wow! This task I did was so amazing! I generated 50000 moneys!',
+					],
 				},
 			],
 			editMode: false,
@@ -77,8 +80,8 @@ class Experience extends Component {
 				onMouseOut={this.makeEditBtnInvisible}
 			>
 				<h2>Experience</h2>
-				{this.state.exps.map((currExp, idx) => (
-					<div key={idx} className="exp-container">
+				{this.state.exps.map((currExp, exp_idx) => (
+					<div key={exp_idx} className="exp-container">
 						<h3>
 							<b>{currExp.name} | </b> {currExp.location}
 							<br />
@@ -90,6 +93,102 @@ class Experience extends Component {
 								</p>
 							</div>
 						</h3>
+						{currExp.tasks.length > 0 ? (
+							<ul>
+								{currExp.tasks.map((currTask, task_idx) => (
+									<li key={task_idx}>
+										{currTask}
+										{this.state.editMode ? (
+											<button
+												className="del-task-btn"
+												onClick={(e) => {
+													currExp.tasks =
+														currExp.tasks.filter(
+															(value, index) => {
+																if (
+																	index !==
+																	task_idx
+																)
+																	return value;
+																return null;
+															}
+														);
+													this.setState({
+														exps: this.state.exps,
+													});
+												}}
+											>
+												x
+											</button>
+										) : null}
+									</li>
+								))}
+							</ul>
+						) : null}
+						{this.state.editMode ? (
+							<div className="edit-task-container">
+								<form
+									className="task-form"
+									id={`taskForm${exp_idx}`}
+									onSubmit={(e) => {
+										e.preventDefault();
+										const addTaskBtn =
+											document.querySelector(
+												'button.add-task-btn'
+											);
+										const formData = new FormData(e.target);
+										currExp.tasks.push(
+											formData.get('task')
+										);
+										this.setState({
+											exps: this.state.exps,
+										});
+										e.target.style.display = 'none';
+										addTaskBtn.style.display = 'block';
+										e.target.reset();
+									}}
+								>
+									<textarea
+										className="task-input"
+										name="task"
+										placeholder="Wow! This task I did was so amazing! I generated 50000 moneys!"
+										required
+									/>
+									<button type="submit">Submit</button>
+									<button
+										type="button"
+										className="close-task-form-btn"
+										onClick={(e) => {
+											const taskForm =
+												document.querySelector(
+													`div.edit-task-container form#taskForm${exp_idx}`
+												);
+											const addTaskBtn =
+												document.querySelector(
+													'button.add-task-btn'
+												);
+											taskForm.reset();
+											taskForm.style.display = 'none';
+											addTaskBtn.style.display = 'block';
+										}}
+									>
+										x
+									</button>
+								</form>
+								<button
+									className="add-task-btn"
+									onClick={(e) => {
+										const taskForm = document.querySelector(
+											`div.edit-task-container form#taskForm${exp_idx}`
+										);
+										e.target.style.display = 'none';
+										taskForm.style.display = 'flex';
+									}}
+								>
+									Add Task
+								</button>
+							</div>
+						) : null}
 						{this.state.editMode ? (
 							<button
 								className="del-exp-btn"
@@ -97,7 +196,8 @@ class Experience extends Component {
 									this.setState({
 										exps: this.state.exps.filter(
 											(value, index) => {
-												if (index !== idx) return value;
+												if (index !== exp_idx)
+													return value;
 												return null;
 											}
 										),
