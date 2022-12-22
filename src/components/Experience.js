@@ -1,4 +1,3 @@
-import { faBorderNone } from '@fortawesome/free-solid-svg-icons';
 import { Component } from 'react';
 import '../styles/Experience.css';
 
@@ -93,7 +92,7 @@ class Experience extends Component {
 								</p>
 							</div>
 						</h3>
-						{currExp.tasks.length > 0 ? (
+						{currExp.tasks && currExp.tasks.length > 0 ? (
 							<ul>
 								{currExp.tasks.map((currTask, task_idx) => (
 									<li key={task_idx}>
@@ -134,7 +133,7 @@ class Experience extends Component {
 										e.preventDefault();
 										const addTaskBtn =
 											document.querySelector(
-												'button.add-task-btn'
+												`button#addTaskBtn${exp_idx}`
 											);
 										const formData = new FormData(e.target);
 										currExp.tasks.push(
@@ -165,7 +164,7 @@ class Experience extends Component {
 												);
 											const addTaskBtn =
 												document.querySelector(
-													'button.add-task-btn'
+													`button#addTaskBtn${exp_idx}`
 												);
 											taskForm.reset();
 											taskForm.style.display = 'none';
@@ -177,6 +176,7 @@ class Experience extends Component {
 								</form>
 								<button
 									className="add-task-btn"
+									id={`addTaskBtn${exp_idx}`}
 									onClick={(e) => {
 										const taskForm = document.querySelector(
 											`div.edit-task-container form#taskForm${exp_idx}`
@@ -229,17 +229,18 @@ class Experience extends Component {
 									endYear: this.state.isCurrWorking
 										? 'Present'
 										: formData.get('end_year'),
+									tasks: [],
 								}),
 								addExpMode: false,
 							});
 						}}
 					>
 						<div className="form-row">
-							<label for="name">Company</label>
+							<label htmlFor="name">Company</label>
 							<input id="name" name="name" type="text" required />
 						</div>
 						<div className="form-row">
-							<label for="location">Location</label>
+							<label htmlFor="location">Location</label>
 							<input
 								id="location"
 								name="location"
@@ -249,7 +250,7 @@ class Experience extends Component {
 							/>
 						</div>
 						<div className="form-row">
-							<label for="title">Job Title</label>
+							<label htmlFor="title">Job Title</label>
 							<input
 								id="title"
 								name="title"
@@ -257,8 +258,8 @@ class Experience extends Component {
 								required
 							/>
 						</div>
-						<div class="form-row">
-							<label for="startMonth">Start Month</label>
+						<div className="form-row">
+							<label htmlFor="startMonth">Start Month</label>
 							<select id="startMonth" name="start_month">
 								<option value="Jan">January</option>
 								<option value="Feb">February</option>
@@ -274,8 +275,8 @@ class Experience extends Component {
 								<option value="Dec">December</option>
 							</select>
 						</div>
-						<div class="form-row start-year-row">
-							<label for="startYear">Start Year</label>
+						<div className="form-row start-year-row">
+							<label htmlFor="startYear">Start Year</label>
 							<select id="startYear" name="start_year">
 								<option value="2012">2012</option>
 								<option value="2013">2013</option>
@@ -295,8 +296,11 @@ class Experience extends Component {
 								<option value="2027">2027</option>
 							</select>
 						</div>
-						<div class="form-row">
-							<label class="checkbox-label" for="currWorking">
+						<div className="form-row">
+							<label
+								className="checkbox-label"
+								htmlFor="currWorking"
+							>
 								<input
 									id="currWorking"
 									name="curr_working"
@@ -307,8 +311,8 @@ class Experience extends Component {
 								<span>I’m currently working here</span>
 							</label>
 						</div>
-						<div class="form-row">
-							<label for="endMonth">End Month</label>
+						<div className="form-row">
+							<label htmlFor="endMonth">End Month</label>
 							<select id="endMonth" name="end_month">
 								<option value="Jan">January</option>
 								<option value="Feb">February</option>
@@ -324,8 +328,8 @@ class Experience extends Component {
 								<option value="Dec">December</option>
 							</select>
 						</div>
-						<div class="form-row">
-							<label for="endYear">End Year</label>
+						<div className="form-row">
+							<label htmlFor="endYear">End Year</label>
 							<select id="endYear" name="end_year">
 								<option value="2012">2012</option>
 								<option value="2013">2013</option>

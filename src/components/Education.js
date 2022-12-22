@@ -112,11 +112,11 @@ class Education extends Component {
 						}}
 					>
 						<div className="form-row">
-							<label for="name">School Name</label>
+							<label htmlFor="name">School Name</label>
 							<input id="name" name="name" type="text" required />
 						</div>
 						<div className="form-row">
-							<label for="location">Location</label>
+							<label htmlFor="location">Location</label>
 							<input
 								id="location"
 								name="location"
@@ -125,8 +125,8 @@ class Education extends Component {
 								required
 							/>
 						</div>
-						<div class="form-row">
-							<label for="degree">Degree</label>
+						<div className="form-row">
+							<label htmlFor="degree">Degree</label>
 							<select id="degree" name="degree">
 								<option value="A.A.">AA</option>
 								<option value="A.S.">AS</option>
@@ -146,7 +146,7 @@ class Education extends Component {
 							</select>
 						</div>
 						<div className="form-row">
-							<label for="field">Field</label>
+							<label htmlFor="field">Field</label>
 							<input
 								id="field"
 								name="field"
@@ -154,8 +154,8 @@ class Education extends Component {
 								required
 							/>
 						</div>
-						<div class="form-row">
-							<label for="gradMonth">Grad Month</label>
+						<div className="form-row">
+							<label htmlFor="gradMonth">Grad Month</label>
 							<select id="gradMonth" name="grad_month">
 								<option value="Jan">January</option>
 								<option value="Feb">February</option>
@@ -171,8 +171,8 @@ class Education extends Component {
 								<option value="Dec">December</option>
 							</select>
 						</div>
-						<div class="form-row">
-							<label for="gradYear">Grad Year</label>
+						<div className="form-row">
+							<label htmlFor="gradYear">Grad Year</label>
 							<select id="gradYear" name="grad_year">
 								<option value="2012">2012</option>
 								<option value="2013">2013</option>
