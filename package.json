@@ -43,6 +43,5 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  },
-  "homepage": "http://rhkim1292.github.io/cv-project"
+  }
 }
